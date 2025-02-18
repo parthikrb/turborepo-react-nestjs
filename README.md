@@ -1,84 +1,133 @@
-# Turborepo starter
+# Turborepo React-NestJS Monorepo
 
-This Turborepo starter is maintained by the Turborepo core team.
+A modern full-stack monorepo template using Turborepo with React and NestJS.
 
-## Using this example
+## Tech Stack
 
-Run the following command:
-
-```sh
-npx create-turbo@latest
-```
+- **Build Tool**: [Turborepo](https://turbo.build/repo) - High-performance build system for JavaScript/TypeScript monorepos
+- **Frontend**:
+  - [React](https://react.dev/) - JavaScript library for building user interfaces
+  - [TanStack Router](https://tanstack.com/router) - Type-safe routing for React
+  - [Mantine](https://mantine.dev/) - React components library
+  - [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- **Backend**: [NestJS](https://nestjs.com/) - Progressive Node.js framework
+- **Database**: [Drizzle ORM](https://orm.drizzle.team) - TypeScript ORM with maximum type safety
+- **Package Manager**: pnpm
 
 ## What's inside?
 
 This Turborepo includes the following packages/apps:
 
-### Apps and Packages
+### Apps
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+- `web`: A React application with TanStack Router, Mantine, and Tailwind CSS (Frontend)
+- `api`: A [NestJS](https://nestjs.com/) application (Backend)
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+### Packages
 
-### Utilities
+- `@repo/ui`: Shared React component library
+- `@repo/db`: Database schema and Drizzle configuration
+- `@repo/eslint-config`: ESLint configurations
+- `@repo/typescript-config`: TypeScript configurations
 
-This Turborepo has some additional tools already setup for you:
+### Utilities and Tools
+
+This monorepo comes with several pre-configured tools:
 
 - [TypeScript](https://www.typescriptlang.org/) for static type checking
 - [ESLint](https://eslint.org/) for code linting
 - [Prettier](https://prettier.io) for code formatting
+- [Husky](https://typicode.github.io/husky/) for Git hooks
+- [Lint-staged](https://github.com/okonet/lint-staged) for pre-commit linting
 
-### Build
+## Getting Started
 
-To build all apps and packages, run the following command:
+### Prerequisites
 
+- Node.js 16.x or later
+- pnpm 7.x or later
+
+### Installation
+
+1. Clone the repository
+2. Install dependencies:
+
+```sh
+pnpm install
 ```
-cd my-turborepo
-pnpm build
+
+3. Copy the example environment file:
+
+```sh
+cp .env.example .env
 ```
 
-### Develop
+4. Set up your environment variables in `.env`
 
-To develop all apps and packages, run the following command:
+### Development
 
-```
-cd my-turborepo
+To develop all apps and packages:
+
+```sh
 pnpm dev
 ```
 
-### Remote Caching
+The following services will be available:
 
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
+- Frontend: http://localhost:5173
+- Backend API: http://localhost:3001
 
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+### Build
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
+To build all apps and packages:
+
+```sh
+pnpm build
+```
+
+### Lint
+
+To lint all apps and packages:
+
+```sh
+pnpm lint
+```
+
+## Project Structure
 
 ```
-cd my-turborepo
+.
+├── apps
+│   ├── api/          # NestJS backend application
+│   └── web/          # React frontend application
+├── packages
+│   ├── db/           # Database schemas and Drizzle configurations
+│   ├── eslint-config/# Shared ESLint configurations
+│   ├── typescript-config/# Shared TypeScript configurations
+│   └── ui/           # Shared UI components
+└── package.json
+```
+
+## Remote Caching
+
+This project supports Turborepo's Remote Caching feature. To enable it:
+
+1. Create a [Vercel account](https://vercel.com/signup)
+2. Link your turborepo:
+
+```sh
 npx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
 npx turbo link
 ```
 
+## Contributing
+
+1. Create a new branch
+2. Make your changes
+3. Submit a pull request
+
 ## Useful Links
 
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+- [Turborepo Documentation](https://turbo.build/repo/docs)
+- [NestJS Documentation](https://docs.nestjs.com/)
+- [React Documentation](https://react.dev/)
