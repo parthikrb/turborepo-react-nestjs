@@ -1,11 +1,15 @@
-import "dotenv/config";
-import { defineConfig } from "drizzle-kit";
+import 'dotenv/config';
+import type { Config } from 'drizzle-kit';
 
-export default defineConfig({
-  out: "./drizzle",
-  schema: "./schema/index.ts",
-  dialect: "postgresql",
+// This configuration is only used for generating migrations
+// Each app will provide its own database connection details
+export default {
+  schema: './schema/index.ts',
+  out: './drizzle',
+  driver: 'pg',
+  // These are just placeholder values for migration generation
+  // The actual values will be provided by the consuming application
   dbCredentials: {
-    url: process.env.DATABASE_URL!,
+    connectionString: process.env.DATABASE_URL ?? 'postgresql://placeholder:placeholder@localhost:5432/placeholder',
   },
-});
+} satisfies Config;
