@@ -34,6 +34,46 @@ export const config = [
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-floating-promises': 'warn',
       '@typescript-eslint/no-unsafe-argument': 'warn',
+      '@typescript-eslint/explicit-function-return-type': 'error',
+      '@typescript-eslint/explicit-module-boundary-types': 'error',
+      '@typescript-eslint/decorator-position': [
+        'error',
+        {
+          printWidth: 100,
+          properties: 'above',
+        },
+      ],
+    },
+  },
+  {
+    files: ['**/*.controller.ts'],
+    rules: {
+      '@typescript-eslint/explicit-member-accessibility': [
+        'error',
+        {
+          accessibility: 'explicit',
+          overrides: { constructors: 'no-public' },
+        },
+      ],
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          varsIgnorePattern: '^_',
+          argsIgnorePattern: '^_',
+        },
+      ],
+      'require-api-docs': [
+        'error',
+        {
+          methods: {
+            Get: ['ApiOperation', 'ApiResponse'],
+            Post: ['ApiOperation', 'ApiResponse'],
+            Put: ['ApiOperation', 'ApiResponse'],
+            Delete: ['ApiOperation', 'ApiResponse'],
+            Patch: ['ApiOperation', 'ApiResponse'],
+          },
+        },
+      ],
     },
   },
 ];

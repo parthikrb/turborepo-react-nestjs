@@ -8,7 +8,8 @@
     "format": "prettier --write \"**/*.{ts,tsx,md,js,jsx,json,yaml,yml,html,css,scss,cjs,mjs}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,md,js,jsx,json,yaml,yml,html,css,scss,cjs,mjs}\"",
     "check-types": "turbo check-types",
-    "prepare": "husky install && lint-staged"
+    "prepare": "husky install && lint-staged",
+    "generate-api": "cd packages/api && pnpm run generate"
   },
   "devDependencies": {
     "prettier": "^3.5.0",
